@@ -1,0 +1,49 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Реализация домашних заданий для курса",
+        "title": "ML integration course",
+        "contact": {},
+        "version": "0.0.1"
+    },
+    "host": "localhost:7577",
+    "basePath": "/",
+    "paths": {
+        "/calculate": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Вычисление суммы",
+                "parameters": [
+                    {
+                        "description": "Объект с числами",
+                        "name": "numbers",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

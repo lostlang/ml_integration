@@ -1,0 +1,32 @@
+basePath: /
+host: localhost:7577
+info:
+  contact: {}
+  description: Реализация домашних заданий для курса
+  title: ML integration course
+  version: 0.0.1
+paths:
+  /calculate:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Объект с числами
+        in: body
+        name: numbers
+        required: true
+        schema:
+          additionalProperties:
+            type: integer
+          type: object
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: integer
+            type: object
+      summary: Вычисление суммы
+swagger: "2.0"
