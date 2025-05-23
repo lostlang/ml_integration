@@ -1,0 +1,8 @@
+services:
+  ml_integration:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ml_integration
+    ports:
+      - "7577:7577"

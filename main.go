@@ -10,7 +10,7 @@ import (
 )
 
 // @title ML integration course
-// @version 0.0.1
+// @version 0.0.2
 // @description Реализация домашних заданий для курса
 // @host localhost:7577
 // @BasePath /
@@ -18,6 +18,7 @@ func main() {
 	r := gin.Default()
 
 	r.POST("calculate", handler.SumHandler)
+	r.POST("query", handler.QueryHandler)
 
 	// Swagger endpoint
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))

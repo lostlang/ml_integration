@@ -50,13 +50,49 @@ const docTemplate = `{
                     }
                 }
             }
+        },
+        "/query": {
+            "post": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Выполнить SQL по CSV",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "CSV-файл",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "SQL-запрос",
+                        "name": "sql",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
         }
     }
 }`
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
-	Version:          "0.0.1",
+	Version:          "0.0.2",
 	Host:             "localhost:7577",
 	BasePath:         "/",
 	Schemes:          []string{},

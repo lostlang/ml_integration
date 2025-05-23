@@ -4,7 +4,7 @@ info:
   contact: {}
   description: Реализация домашних заданий для курса
   title: ML integration course
-  version: 0.0.1
+  version: 0.0.2
 paths:
   /calculate:
     post:
@@ -29,4 +29,28 @@ paths:
               type: integer
             type: object
       summary: Вычисление суммы
+  /query:
+    post:
+      consumes:
+      - multipart/form-data
+      parameters:
+      - description: CSV-файл
+        in: formData
+        name: file
+        required: true
+        type: file
+      - description: SQL-запрос
+        in: formData
+        name: sql
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties: true
+            type: object
+      summary: Выполнить SQL по CSV
 swagger: "2.0"

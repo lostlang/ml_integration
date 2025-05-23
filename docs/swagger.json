@@ -4,7 +4,7 @@
         "description": "Реализация домашних заданий для курса",
         "title": "ML integration course",
         "contact": {},
-        "version": "0.0.1"
+        "version": "0.0.2"
     },
     "host": "localhost:7577",
     "basePath": "/",
@@ -40,6 +40,42 @@
                             "additionalProperties": {
                                 "type": "integer"
                             }
+                        }
+                    }
+                }
+            }
+        },
+        "/query": {
+            "post": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Выполнить SQL по CSV",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "CSV-файл",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "SQL-запрос",
+                        "name": "sql",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
                         }
                     }
                 }
