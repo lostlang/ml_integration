@@ -1,0 +1,34 @@
+name: Check Swagger Docs Up To Date
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  swagger-check:
+    name: Check Swagger is up to date
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Load code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+
+      - name: Install swag
+        run: go install github.com/swaggo/swag/cmd/swag@latest
+
+      - name: Run swag init
+        run: swag init
+
+      - name: Check for uncommitted changes
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "Swagger docs are not up to date. Run 'swag init' and commit the changes."
+            git status
+            git --no-pager diff
+            exit 1
+          fi
