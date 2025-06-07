@@ -37,6 +37,12 @@ func QueryHandler(c *gin.Context) {
 	defer file.Close()
 
 	csvData, err := io.ReadAll(file)
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+		return
+	}
 
 	query = normalizeQuery(query)
 	cmd := exec.Command("q", "-H", "-d", ",", query)

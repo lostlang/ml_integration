@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
@@ -10,7 +12,7 @@ import (
 )
 
 // @title ML integration course
-// @version 0.0.2
+// @version 0.0.3
 // @description Реализация домашних заданий для курса
 // @host localhost:7577
 // @BasePath /
@@ -23,5 +25,9 @@ func main() {
 	// Swagger endpoint
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
-	r.Run(":7577")
+	err := r.Run(":7577")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 }
