@@ -1,9 +1,9 @@
-name: Build Docker image
+name: Build release Docker image
 
 on:
   push:
-    branches-ignore:
-      - main
+    branches:
+      - master
 
 jobs:
   docker-build:
@@ -26,4 +26,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository }}_dev:latest
+          tags: ghcr.io/${{ github.repository }}:latest
