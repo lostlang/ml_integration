@@ -6,7 +6,6 @@
         "contact": {},
         "version": "0.0.3"
     },
-    "host": "localhost:7577",
     "basePath": "/",
     "paths": {
         "/calculate": {

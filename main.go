@@ -14,7 +14,6 @@ import (
 // @title ML integration course
 // @version 0.0.3
 // @description Реализация домашних заданий для курса
-// @host localhost:7577
 // @BasePath /
 func main() {
 	r := gin.Default()

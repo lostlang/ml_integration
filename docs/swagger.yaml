@@ -1,5 +1,4 @@
 basePath: /
-host: localhost:7577
 info:
   contact: {}
   description: Реализация домашних заданий для курса
