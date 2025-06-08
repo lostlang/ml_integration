@@ -34,6 +34,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Load code
+        uses: actions/checkout@v4
+
       - name: Copy compose files
         uses: appleboy/scp-action@v1
         with:
