@@ -37,6 +37,14 @@ jobs:
       - name: Load code
         uses: actions/checkout@v4
 
+
+      - name: Debug — list files
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Files in directory:"
+          ls -la
+
       - name: Copy compose files
         uses: appleboy/scp-action@v1
         with:
