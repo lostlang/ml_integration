@@ -1,8 +1,7 @@
 services:
   ml_integration:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: ml_integration
+    image: ghcr.io/lostlang/ml_integration:latest
     ports:
       - "7577:7577"
+    environment:
+      - GIN_MODE=release
