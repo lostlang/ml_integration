@@ -4,7 +4,7 @@ info:
   contact: {}
   description: Реализация домашних заданий для курса
   title: ML integration course
-  version: 0.0.2
+  version: 0.0.3
 paths:
   /calculate:
     post:
