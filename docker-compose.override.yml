@@ -1,0 +1,5 @@
+services:
+  ml_integration:
+    image: ghcr.io/lostlang/ml_integration_dev:latest
+    environment:
+      - GIN_MODE=debug

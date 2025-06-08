@@ -1,7 +1,6 @@
 name: Check Swagger Docs Up To Date
 
 on:
-  push:
   pull_request:
 
 jobs:
