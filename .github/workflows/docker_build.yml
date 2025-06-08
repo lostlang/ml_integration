@@ -10,10 +10,6 @@ jobs:
     name: Build and push Docker dev image to GHCR
     runs-on: ubuntu-latest
 
-    permissions:
-      packages: write
-      contents: read
-
     steps:
       - name: Load code
         uses: actions/checkout@v4
